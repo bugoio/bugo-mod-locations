@@ -2,7 +2,7 @@ module:
   imports:
   - disable: false
     ignoreConfig: false
-    path: github.com/bugoio/bugo-sass-utilities
+    path: github.com/bugoio/bugo-mod-thumbnail
   - disable: false
     ignoreConfig: false
-    path: github.com/bugoio/bugo-mod-thumbnail
+    path: github.com/bugoio/bugo-sass-utilities
