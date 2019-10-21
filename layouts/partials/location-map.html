@@ -20,6 +20,6 @@
 </p>
 {{ end }}
 {{ if $mapAddress }}
-  {{ partial "google-map" ( dict "address" $mapAddress "key" .Site.Params.google_cloud_api ) }}
+  {{ partial "google-map" ( dict "address" $mapAddress "key" .Site.Params.googleCloudApi ) }}
 {{ end }}
 {{ partial "directory-modal" . }}
