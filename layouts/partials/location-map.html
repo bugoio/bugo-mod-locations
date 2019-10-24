@@ -1,4 +1,7 @@
 {{ $mapAddress := partial "utilities/get-location-address-string" . }}
+{{ with .Params.images }}
+  <img class="img-flex" src="{{ index . 0 }}"/>
+{{ end }}
 <div class="dflex space-between">
   <h3 id="{{ .Title | urlize }}">{{ .Title }}</h3>
   {{ partial "directory-button" . }}
