@@ -2,6 +2,9 @@ module:
   imports:
   - disable: false
     ignoreConfig: false
+    path: github.com/bugoio/bugo-mod-simple-modal
+  - disable: false
+    ignoreConfig: false
     path: github.com/bugoio/bugo-mod-thumbnail
   - disable: false
     ignoreConfig: false
