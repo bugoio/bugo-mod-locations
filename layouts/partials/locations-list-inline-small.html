@@ -5,6 +5,11 @@
       <span class="h6 text-white">{{ .Title }}</span><br/>
       {{ .Params.address_1 }}{{ with .Params.address_2 }} {{ . }}{{ end }}<br/>
       {{ .Params.city }}, {{ .Params.state }} {{ .Params.zip_code }}
+      <ul class="list-unstyled m-none">
+        {{ range $index, $phone := .Params.phones }}
+          <li>{{ $index | humanize | title }}: {{ $phone }}</li>
+        {{ end }}
+      </ul>
     </li>
   {{ end}}
 </ul>
