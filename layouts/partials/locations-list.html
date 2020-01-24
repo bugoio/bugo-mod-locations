@@ -3,7 +3,7 @@
   {{ range $locations }}
     <li class="">
       <span class="">{{ .Title }}</span><br/>
-      {{ .Params.address_1 }}{{ with .Params.address_2 }} {{ . }}{{ end }}<br/>
+      {{ .Params.address_1 }}{{ with .Params.address_2 }}, {{ . }}{{ end }}<br/>
       {{ .Params.city }}, {{ .Params.state }} {{ .Params.zip_code }}
     </li>
   {{ end}}

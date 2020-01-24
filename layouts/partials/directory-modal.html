@@ -2,12 +2,16 @@
    * Directory Modal
    * * Launched by directory-button partial
    **/}}
-
+{{ $attorneys := slice }}
+{{ range sort .Params.staff }}
+  {{ $attorneys = $attorneys | append ($.Site.GetPage .) }}
+{{ end }}
+{{ if gt (len $attorneys) 0 }}
 <div id="modal-{{ .Title | urlize }}" class="modal">
   <div class="modal-window">
     <div class="modal-content">
       <div class="dflex flex-wrap">
-        {{ range sort (where (.Site.RegularPages.Related .) "Section" "attorneys") "Params.last_name" "asc"}}
+        {{ range sort $attorneys "Params.last_name" "asc"}}
           <div class="flex-33 py-0">
               {{ partial "attorney-summary-tiny-contact" . }}
           </div>
@@ -19,3 +23,4 @@
     </button>
   </div>
 </div>
+{{ end }}

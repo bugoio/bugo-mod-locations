@@ -1,4 +1,7 @@
 {{ $mapAddress := partial "utilities/get-location-address-string" . }}
+{{ with .Params.images }}
+  <img class="img-flex" src="{{ index . 0 }}"/>
+{{ end }}
 <div class="dflex space-between">
   <h3 id="{{ .Title | urlize }}">{{ .Title }}</h3>
   {{ partial "directory-button" . }}
@@ -7,19 +10,20 @@
 <p class="m-none">
   {{ .Params.address_1 }}{{ with .Params.address_2 }} {{ . }}{{ end }}<br/>
   {{ .Params.city }}, {{ .Params.state }} {{ .Params.zip_code }}
-  <ul class="list-unstyled m-none">
-    {{ range $index, $phone := .Params.phones }}
-      <li>{{ $index | humanize | title }}: {{ $phone }}</li>
-    {{ end }}
-  </ul>
 </p>
+<ul class="list-unstyled m-none">
+  {{ range $index, $phone := .Params.phones }}
+    <li>{{ $index | humanize | title }}: {{ $phone }}</li>
+  {{ end }}
+</ul>
+
 {{ with .Params.hours }}
 <h4>Hours of Operation</h4>
 <p>
-  {{ . | markdownify }}
+  {{ . }}
 </p>
 {{ end }}
 {{ if $mapAddress }}
-  {{ partial "google-map" ( dict "address" $mapAddress "key" .Site.Params.google_cloud_api ) }}
+  {{ partial "google-map" ( dict "address" $mapAddress "key" .Site.Params.googleCloudApi ) }}
 {{ end }}
 {{ partial "directory-modal" . }}
