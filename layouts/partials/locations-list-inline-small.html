@@ -2,12 +2,15 @@
 <ul class="location-list-inline-small list-inline">
   {{ range $locations }}
     <li class="px-0 py-none">
-      <span class="h6 text-white">{{ .Title }}</span><br/>
-      {{ .Params.address_1 }}{{ with .Params.address_2 }} {{ . }}{{ end }}<br/>
+      <span class="h6 text-white">{{ .Title }}</span>
+      {{ .Params.address_1 }}{{ with .Params.address_2 }}, {{ . }}{{ end }}<br/>
       {{ .Params.city }}, {{ .Params.state }} {{ .Params.zip_code }}
       <ul class="list-unstyled m-none">
         {{ range $index, $phone := .Params.phones }}
           <li>{{ $index | humanize | title }}: {{ $phone }}</li>
+        {{ end }}
+        {{ with .Params.email }}
+          <li>Email: <a href="mailto:{{ . }}">{{ . }}</a></li>
         {{ end }}
       </ul>
     </li>
