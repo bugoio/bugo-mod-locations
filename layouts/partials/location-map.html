@@ -26,4 +26,6 @@
 {{ if $mapAddress }}
   {{ partial "google-map" ( dict "address" $mapAddress "key" .Site.Params.googleCloudApi ) }}
 {{ end }}
+{{ if isset .Params "staff" }}
 {{ partial "directory-modal" . }}
+{{ end }}
